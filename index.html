@@ -1,289 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Ayushi Dhimmar — Aspiring Data Analyst portfolio showcasing SQL, Python, Power BI projects." />
-    <title>Ayushi Dhimmar | Data Analyst</title>
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayushi Dhimmar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <body>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --border: rgba(255, 255, 255, 0.07);
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --da: #0ea5e9;
+      --da-glow: rgba(14, 165, 233, 0.15);
+      --ml: #7c3aed;
+      --ml-glow: rgba(124, 58, 237, 0.15);
+    }
 
-    <!-- ========== NAVBAR ========== -->
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
-      <div class="container">
-        <a href="#home" class="nav-logo">Ayushi<span>.</span></a>
+    html,
+    body {
+      height: 100%;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow: hidden;
+    }
 
-        <!-- Desktop nav links -->
-        <ul class="nav-menu" id="nav-menu">
-          <li><a href="#home"     class="nav-link active">Home</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#skills"   class="nav-link">Skills</a></li>
-          <li><a href="#resume"   class="nav-link">Resume</a></li>
-          <li><a href="#contact"  class="nav-link">Contact</a></li>
-        </ul>
+    /* ── Noise texture overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
 
-        <!-- Mobile hamburger -->
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </nav>
+    /* ── Layout ── */
+    .split {
+      display: flex;
+      height: 100vh;
+      position: relative;
+      z-index: 1;
+    }
 
+    .panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      padding: 48px 40px;
+      position: relative;
+      cursor: pointer;
+      transition: flex 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      color: inherit;
+      overflow: hidden;
+    }
 
-    <!-- ========== HOME SECTION ========== -->
-    <section id="home">
-      <div class="container">
-        <div class="hero-content">
+    /* Divider line */
+    .split::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 10%;
+      height: 80%;
+      width: 1px;
+      background: var(--border);
+      z-index: 2;
+      pointer-events: none;
+    }
 
-          <div class="hero-badge">Open to opportunities</div>
+    /* Glow background per panel */
+    .panel--da::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: var(--da-glow);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      filter: blur(80px);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+    }
 
-          <h1 class="hero-name">Ayushi Dhimmar</h1>
-          <p class="hero-title">Aspiring Data Analyst</p>
+    .panel--ml::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: var(--ml-glow);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      filter: blur(80px);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+    }
 
-          <p class="hero-intro">
-            Final-year Computer Engineering student at GEC Modasa with a passion for turning
-            raw data into meaningful insights. Skilled in SQL, Python, and data visualisation —
-            building solutions that support smarter decisions.
-          </p>
+    .panel--da:hover::before,
+    .panel--ml:hover::before {
+      opacity: 1;
+    }
 
-          <div class="hero-buttons">
-            <a href="#projects" class="btn-primary">
-              <!-- Chart icon -->
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 17V13M12 17V9M16 17V13"/></svg>
-              View Projects
-            </a>
-            <a href="assets/resume.pdf" download class="btn-outline">
-              <!-- Download icon -->
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download Resume
-            </a>
-          </div>
+    /* ── Name at top center ── */
+    .name-bar {
+      position: absolute;
+      top: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      text-align: center;
+    }
 
-        </div>
-      </div>
-    </section>
+    .name-bar h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
 
+    /* ── Panel content ── */
+    .panel-icon {
+      font-size: 2.8rem;
+      line-height: 1;
+      filter: grayscale(1) brightness(0.6);
+      transition: filter 0.4s ease, transform 0.4s ease;
+    }
 
-    <!-- ========== PROJECTS SECTION ========== -->
-    <section id="projects" class="section-wrapper">
-      <div class="container">
+    .panel:hover .panel-icon {
+      filter: grayscale(0) brightness(1);
+      transform: scale(1.1);
+    }
 
-        <div class="section-header fade-in">
-          <span class="section-label">Portfolio</span>
-          <h2 class="section-title">Featured Projects</h2>
-          <p class="section-sub">
-            A selection of data analysis and machine learning projects — each backed
-            by real datasets and reproducible code on GitHub.
-          </p>
-        </div>
+    .panel-role {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 400;
+      line-height: 1.2;
+      text-align: center;
+      color: #94a3b8;
+      transition: color 0.4s ease;
+    }
 
-        <!-- Cards are injected here by script.js using projects.js -->
-        <div id="projects-grid"></div>
+    .panel--da:hover .panel-role {
+      color: var(--da);
+    }
 
-      </div>
-    </section>
+    .panel--ml:hover .panel-role {
+      color: var(--ml);
+    }
 
+    .panel-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      text-align: center;
+      max-width: 240px;
+      line-height: 1.7;
+      transition: color 0.4s ease;
+    }
 
-    <!-- ========== SKILLS SECTION ========== -->
-    <section id="skills" class="section-wrapper">
-      <div class="container">
+    .panel:hover .panel-desc {
+      color: #94a3b8;
+    }
 
-        <div class="section-header fade-in">
-          <span class="section-label">Expertise</span>
-          <h2 class="section-title">Skills &amp; Tools</h2>
-          <p class="section-sub">
-            Technologies I use to collect, clean, analyse, and visualise data.
-          </p>
-        </div>
+    .panel-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
+    }
 
-        <div class="skills-grid">
+    .panel:hover .panel-cta {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-          <!-- Data Analysis -->
-          <div class="skill-category fade-in">
-            <div class="skill-cat-icon">🔍</div>
-            <h3 class="skill-cat-title">Data Analysis</h3>
-            <div class="skill-list">
-              <span class="skill-pill">SQL</span>
-              <span class="skill-pill">Python</span>
-              <span class="skill-pill">Excel</span>
-              <span class="skill-pill">Pandas</span>
-              <span class="skill-pill">NumPy</span>
-              <span class="skill-pill">EDA</span>
-              <span class="skill-pill">Data Cleaning</span>
-              <span class="skill-pill">Feature Engineering</span>
-            </div>
-          </div>
+    .panel--da .panel-cta {
+      color: var(--da);
+      border-color: rgba(14, 165, 233, 0.3);
+      background: rgba(14, 165, 233, 0.08);
+    }
 
-          <!-- Visualisation -->
-          <div class="skill-category fade-in">
-            <div class="skill-cat-icon">📊</div>
-            <h3 class="skill-cat-title">Visualisation</h3>
-            <div class="skill-list">
-              <span class="skill-pill">Power BI</span>
-              <span class="skill-pill">Tableau</span>
-              <span class="skill-pill">Matplotlib</span>
-              <span class="skill-pill">Seaborn</span>
-            </div>
-          </div>
+    .panel--ml .panel-cta {
+      color: var(--ml);
+      border-color: rgba(124, 58, 237, 0.3);
+      background: rgba(124, 58, 237, 0.08);
+    }
 
-          <!-- Machine Learning -->
-          <div class="skill-category fade-in">
-            <div class="skill-cat-icon">🤖</div>
-            <h3 class="skill-cat-title">Machine Learning</h3>
-            <div class="skill-list">
-              <span class="skill-pill">Scikit-learn</span>
-              <span class="skill-pill">Linear Regression</span>
-              <span class="skill-pill">K-Means Clustering</span>
-              <span class="skill-pill">Classification</span>
-              <span class="skill-pill">Hypothesis Testing</span>
-            </div>
-          </div>
+    /* ── Bottom hint ── */
+    .hint {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      z-index: 3;
+      white-space: nowrap;
+      animation: fadeup 1.2s ease 0.8s both;
+    }
 
-          <!-- Tools & Platforms -->
-          <div class="skill-category fade-in">
-            <div class="skill-cat-icon">🛠️</div>
-            <h3 class="skill-cat-title">Tools &amp; Platforms</h3>
-            <div class="skill-list">
-              <span class="skill-pill">MySQL</span>
-              <span class="skill-pill">Git</span>
-              <span class="skill-pill">GitHub</span>
-              <span class="skill-pill">VS Code</span>
-              <span class="skill-pill">Jupyter Notebook</span>
-            </div>
-          </div>
+    @keyframes fadeup {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+      }
 
-        </div>
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
 
-        <!-- Certifications -->
-        <div class="cert-list fade-in" style="margin-top: 56px;">
-          <p class="section-label" style="margin-bottom: 16px;">Certifications</p>
-          <div class="cert-item">
-            <div class="cert-dot"></div>
-            <span class="cert-text">NASSCOM AI – Machine Learning Engineer (Ongoing)</span>
-            <span class="cert-year">2026</span>
-          </div>
-          <div class="cert-item">
-            <div class="cert-dot"></div>
-            <span class="cert-text">IBM SkillsBuild – Data Analytics Training</span>
-            <span class="cert-year">2025</span>
-          </div>
-        </div>
+    /* ── Mobile ── */
+    @media (max-width: 640px) {
 
-      </div>
-    </section>
+      html,
+      body {
+        overflow: auto;
+      }
 
+      .split {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+      }
 
-    <!-- ========== RESUME SECTION ========== -->
-    <section id="resume" class="section-wrapper">
-      <div class="container">
+      .split::after {
+        top: 50%;
+        left: 10%;
+        width: 80%;
+        height: 1px;
+      }
 
-        <div class="section-header fade-in">
-          <span class="section-label">Resume</span>
-          <h2 class="section-title">Download My CV</h2>
-        </div>
+      .panel {
+        min-height: 50vh;
+        padding: 60px 32px;
+      }
 
-        <div class="resume-card fade-in">
-          <div class="resume-icon">📄</div>
-          <h3>Ayushi Dhimmar</h3>
-          <p>
-            Data Analyst · Computer Engineering Student<br/>
-            GEC Modasa (GTU) · CGPA 6.93
-          </p>
-          <a href="assets/resume.pdf" download class="btn-primary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download Resume (PDF)
-          </a>
-        </div>
+      .panel-cta {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-      </div>
-    </section>
+      .name-bar {
+        top: 20px;
+      }
 
+      .name-bar h1 {
+        font-size: 0.85rem;
+      }
 
-    <!-- ========== CONTACT SECTION ========== -->
-    <section id="contact" class="section-wrapper">
-      <div class="container">
+      .hint {
+        display: none;
+      }
+    }
+  </style>
+</head>
 
-        <div class="section-header fade-in">
-          <span class="section-label">Get in Touch</span>
-          <h2 class="section-title">Contact Me</h2>
-          <p class="section-sub">
-            Open to internships, entry-level roles, and collaborations. Feel free to reach out!
-          </p>
-        </div>
+<body>
 
-        <div class="contact-grid fade-in">
+  <!-- Name at top -->
+  <div class="name-bar">
+    <h1>Ayushi Dhimmar</h1>
+  </div>
 
-          <!-- Email -->
-          <a href="mailto:ayushidhimmar2104@gmail.com" class="contact-card">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            </div>
-            <div>
-              <div class="contact-label">Email</div>
-              <div class="contact-value">ayushidhimmar2104@gmail.com</div>
-            </div>
-          </a>
+  <div class="split">
 
-          <!-- LinkedIn -->
-          <a href="https://linkedin.com/in/ayushidhimmar" target="_blank" rel="noopener noreferrer" class="contact-card">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </div>
-            <div>
-              <div class="contact-label">LinkedIn</div>
-              <div class="contact-value">linkedin.com/in/ayushidhimmar</div>
-            </div>
-          </a>
+    <!-- DA Panel -->
+    <a href="da.html" class="panel panel--da">
+      <div class="panel-icon">📊</div>
+      <h2 class="panel-role">Data Analyst</h2>
+      <p class="panel-desc">SQL · Tableau · Power BI · Python · EDA · Dashboards</p>
+      <span class="panel-cta">
+        View Portfolio
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </span>
+    </a>
 
-          <!-- GitHub -->
-          <a href="https://github.com/ayushidhimmar" target="_blank" rel="noopener noreferrer" class="contact-card">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            </div>
-            <div>
-              <div class="contact-label">GitHub</div>
-              <div class="contact-value">github.com/ayushidhimmar</div>
-            </div>
-          </a>
+    <!-- ML Panel -->
+    <a href="ml.html" class="panel panel--ml">
+      <div class="panel-icon">🤖</div>
+      <h2 class="panel-role">ML Engineer</h2>
+      <p class="panel-desc">Python · Scikit-learn · Regression · Clustering · Model Evaluation</p>
+      <span class="panel-cta">
+        View Portfolio
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </span>
+    </a>
 
-          <!-- Phone -->
-          <a href="tel:+918160781047" class="contact-card">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-            </div>
-            <div>
-              <div class="contact-label">Phone</div>
-              <div class="contact-value">+91 8160781047</div>
-            </div>
-          </a>
+  </div>
 
-        </div>
-      </div>
-    </section>
+  <p class="hint">Choose your path</p>
 
+</body>
 
-    <!-- ========== FOOTER ========== -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-inner">
-          <span class="footer-name">Ayushi Dhimmar</span>
-          <p class="footer-copy">
-            Designed &amp; built with <span>♥</span> · 2025 · Open source on GitHub
-          </p>
-        </div>
-      </div>
-    </footer>
-
-
-    <!-- Scripts — load projects.js first, then script.js -->
-    <script src="projects.js"></script>
-    <script src="script.js"></script>
-
-  </body>
 </html>
