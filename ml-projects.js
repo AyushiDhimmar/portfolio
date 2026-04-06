@@ -13,7 +13,7 @@ const mlProjects = [
       "Built Balanced Logistic Regression with GridSearchCV achieving ROC-AUC 0.83 and 79% churn recall.",
     ],
     tools: ["Python", "Scikit-learn", "Logistic Regression", "GridSearchCV"],
-    github: "https://github.com/AyushiDhimmar", // replace with actual repo
+    github: "https://github.com/AyushiDhimmar/churn-prediction",
   },
   {
     title: "Diamond Price Prediction",
@@ -31,7 +31,7 @@ const mlProjects = [
       "GridSearchCV",
       "Cross-Validation",
     ],
-    github: "https://github.com/AyushiDhimmar", // replace with actual repo
+    github: "https://github.com/AyushiDhimmar/diamond-price-prediction",
   },
 ];
 

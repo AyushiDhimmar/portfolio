@@ -14,7 +14,7 @@ const daProjects = [
       "Built an interactive Tableau dashboard with cost efficiency heatmap — revealed 29.83% profit margin and identified underperforming units.",
     ],
     tools: ["SQL", "Tableau", "KPI Analysis", "EDA"],
-    github: "https://github.com/AyushiDhimmar", // replace with actual repo
+    github: "https://github.com/AyushiDhimmar/healthcare-financial-dashboard",
   },
   {
     title: "Sales Performance Dashboard",
@@ -26,7 +26,7 @@ const daProjects = [
       "Built Power BI dashboard with KPI cards, sales trend, and deal size analysis to support strategic business decisions.",
     ],
     tools: ["SQL", "Power BI", "KPI Analysis", "Dashboard"],
-    github: "https://github.com/AyushiDhimmar", // replace with actual repo
+    github: "https://github.com/AyushiDhimmar/sales-performance-dashboard",
   },
 ];
 
