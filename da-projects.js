@@ -10,8 +10,8 @@ const daProjects = [
     problem:
       "Hospital lacked visibility into which departments were profitable and where costs were bleeding.",
     did: [
-      "Analyzed 12,851 patient records across 4 regions & 6 departments tracking ₹33M revenue using SQL KPI queries.",
-      "Built an interactive Tableau dashboard with cost efficiency heatmap — revealed 29.83% profit margin and identified underperforming units.",
+      "Analyzed 12,851 patient records across 4 regions → tracked ₹33M revenue using SQL KPI queries.",
+      "Built Tableau dashboard → identified 29.83% profit margin + underperforming departments.",
     ],
     tools: ["SQL", "Tableau", "KPI Analysis", "EDA"],
     github: "https://github.com/AyushiDhimmar/healthcare-financial-dashboard",
@@ -22,8 +22,8 @@ const daProjects = [
     problem:
       "Business had no clear view of which product lines and regions were driving revenue across 19 countries.",
     did: [
-      "Analyzed 2,823 sales records across 7 product lines using SQL — identified Classic Cars as top driver at 40% of $10M revenue.",
-      "Built Power BI dashboard with KPI cards, sales trend, and deal size analysis to support strategic business decisions.",
+      "Analyzed 2,823 sales records across 7 product lines → identified Classic Cars as top revenue driver at 40% of $10M.",
+      "Built Power BI dashboard → surfaced deal size patterns and sales trends to support business decisions.",
     ],
     tools: ["SQL", "Power BI", "KPI Analysis", "Dashboard"],
     github: "https://github.com/AyushiDhimmar/sales-performance-dashboard",

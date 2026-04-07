@@ -9,8 +9,8 @@ const mlProjects = [
     problem:
       "Telecom company couldn't identify which customers were about to leave — losing revenue with no early warning.",
     did: [
-      "Analyzed 7,043 records — found electronic check users (45.3% churn) and month-to-month contracts (42.7% churn) as highest risk segments.",
-      "Built Balanced Logistic Regression with GridSearchCV achieving ROC-AUC 0.83 and 79% churn recall.",
+      "Analyzed 7,043 records → identified high-risk segments (45.3% churn in electronic check users).",
+      "Built Logistic Regression model → ROC-AUC 0.83, 79% recall on churn prediction.",
     ],
     tools: ["Python", "Scikit-learn", "Logistic Regression", "GridSearchCV"],
     github: "https://github.com/AyushiDhimmar/churn-prediction",
@@ -21,8 +21,8 @@ const mlProjects = [
     problem:
       "Diamond pricing is inconsistent and opaque — buyers and sellers need a reliable model to estimate fair value.",
     did: [
-      "Trained Random Forest Regressor on 53,940 records — achieved R² of 0.9786 and RMSE of $580, outperforming Linear Regression and Decision Tree.",
-      "Applied GridSearchCV hyperparameter tuning and 5-fold cross-validation (CV score: 0.9759) confirming strong generalization.",
+      "Trained Random Forest on 53,940 records → achieved R² 0.9786 and RMSE $580.",
+      "Applied hyperparameter tuning + cross-validation → confirmed model generalization (CV score: 0.9759).",
     ],
     tools: [
       "Python",

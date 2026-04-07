@@ -1,79 +1,107 @@
-# Ayushi Dhimmar — Portfolio Website
+# Ayushi Dhimmar — Data Analyst Portfolio
 
-A clean, responsive personal portfolio for a Data Analyst student. Built with plain HTML, CSS, and JavaScript — no frameworks, no build step.
+A focused portfolio showcasing end-to-end data analysis projects — from raw data to business insights and interactive dashboards.
+
+---
+
+## 🌐 Live Site
+
+https://ayushidhimmar.github.io/portfolio/
+
+---
+
+## 📌 What This Portfolio Shows
+
+- Business-driven data analysis (not just technical work)
+- SQL + Python for data cleaning and analysis
+- Interactive dashboards built using Tableau
+- Clear problem → analysis → insight → recommendation flow
 
 ---
 
 ## 📁 Folder Structure
 
-```
 portfolio/
-├── index.html        ← Main page (don't need to edit for new projects)
-├── style.css         ← All styles
-├── script.js         ← Navbar, scroll effects, renders project cards
-├── projects.js       ← ✅ ADD NEW PROJECTS HERE
+├── index.html ← Data Analyst portfolio (main)
+├── ml.html ← (secondary) ML projects
+├── da-projects.js ← Add DA projects here
+├── ml-projects.js ← ML projects (supporting)
 └── assets/
-    └── resume.pdf    ← Drop your resume PDF here
-```
+    ├── da-resume.pdf
+    └── ml-resume.pdf
 
 ---
 
-## ➕ How to Add a New Project
+## ➕ Adding Projects
 
-Open `projects.js` and add a new object inside the `projects` array:
+**Data Analyst projects (`da-projects.js`)**
 
 ```js
 {
-  title: "Your Project Title",
-  description: "A short description of what the project does.",
-  tools: ["Python", "SQL", "Tableau"],
-  insights: [
-    "Key result or finding #1.",
-    "Key result or finding #2.",
+  title: "Project Title",
+  type: "SQL · Tableau",
+  problem: "Business problem solved",
+  did: [
+    "Action → Result",
+    "Insight → Impact",
   ],
-  github: "https://github.com/yourusername/repo-name",
-},
+  tools: ["SQL", "Tableau"],
+  github: "repo-link",
+}
 ```
 
-Save the file — that's it! The card will appear automatically on the website.
+---
+
+## 📊 Live Dashboards
+
+All dashboards are built using Tableau and publicly accessible:
+
+https://public.tableau.com/app/profile/ayushi.dhimmar/vizzes
 
 ---
 
-## 📄 Adding Your Resume
+## 📄 Resume
 
-1. Export your resume as a PDF
-2. Name it `resume.pdf`
-3. Place it in the `assets/` folder
-
-The download buttons on the page will work automatically.
+- Data Analyst Resume
+  https://docs.google.com/document/d/1x2hQRoaMSvmZDskrw3j91IyN4JPihmLFWnoII8SMVPA/export?format=pdf
 
 ---
 
-## 🌐 Deploy to GitHub Pages
+## 🌐 Links
 
-1. Create a new GitHub repository (e.g. `ayushidhimmar.github.io`)
-2. Push all files to the `main` branch
-3. Go to **Settings → Pages → Source → main branch → / (root)**
-4. Your site will be live at `https://yourusername.github.io`
+- LinkedIn: https://www.linkedin.com/in/ayushi-dhimmar
+- GitHub: https://github.com/AyushiDhimmar
 
 ---
 
-## 🔗 Update Your Links
+## 🗺️ Project Roadmap
 
-Search for `ayushidhimmar` in the following files and replace with your actual URLs:
+### Core Projects (Data Analyst)
 
-| File | What to update |
-|---|---|
-| `index.html` | LinkedIn URL, GitHub URL |
-| `projects.js` | Individual project GitHub repo links |
+- [x] Healthcare Financial Performance Analysis
+- [x] Sales Performance Dashboard
+- [ ] Customer Retention / Churn Analysis (upgrade)
+- [ ] Sales Funnel / Product Analytics
 
 ---
 
-## 🎨 Customisation
+## 🎯 Focus
 
-| What | Where |
-|---|---|
-| Accent color | `style.css` → `--accent` variable (line ~14) |
-| Fonts | `style.css` → Google Fonts import + `--font` variables |
-| Skills | `index.html` → Skills section |
-| Certifications | `index.html` → Certifications list |
+This portfolio is designed to demonstrate:
+
+- Ability to identify business problems
+- Translate data into actionable insights
+- Communicate results through dashboards
+
+---
+
+## 🚀 Deployment
+
+Hosted on GitHub Pages.
+To update:
+
+```bash
+git add .
+git commit -m "update"
+git push
+```
