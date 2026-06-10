@@ -28,6 +28,27 @@ const daProjects = [
     tools: ["SQL", "Power BI", "KPI Analysis", "Dashboard"],
     github: "https://github.com/AyushiDhimmar/sales-performance-dashboard",
   },
+  {
+    title: "Hotel Booking & Cancellation Analytics Dashboard",
+    type: "Python · Power BI · Machine Learning",
+    problem:
+      "Hotels face revenue loss and occupancy planning challenges due to booking cancellations. The objective was to identify cancellation drivers and booking patterns using historical hotel reservation data.",
+    did: [
+      "Analyzed 119K+ hotel booking records and uncovered key cancellation drivers including market segment, deposit type, customer type, hotel type, and lead time.",
+      "Built Logistic Regression and Random Forest models for cancellation prediction and developed a two-page Power BI dashboard tracking 87K+ bookings, 24K+ cancellations, ADR, booking trends, and root-cause analysis.",
+    ],
+    tools: [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "Scikit-learn",
+      "Power BI",
+    ],
+    github:
+      "https://github.com/AyushiDhimmar/infotact-Project_2_Hospitality_Analytics",
+  },
 ];
 
 // ============================================================
