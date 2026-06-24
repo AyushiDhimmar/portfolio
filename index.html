@@ -14,7 +14,7 @@
     <!-- ── Navbar ── -->
     <nav class="navbar">
         <div class="container">
-            <a href="#home" class="nav-logo">Ayushi<span>.</span></a>
+            <a href="#home" class="nav-logo">Ayushi Dhimmar</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -58,24 +58,7 @@
                         Download Resume
                     </a>
                 </div>
-                <div class="proof-strip">
-                    <div class="proof-item">
-                        <div class="proof-number">4</div>
-                        <div class="proof-label">Projects Delivered</div>
-                    </div>
-                    <div class="proof-item">
-                        <div class="proof-number">15K+</div>
-                        <div class="proof-label">Records Analyzed</div>
-                    </div>
-                    <div class="proof-item">
-                        <div class="proof-number">6</div>
-                        <div class="proof-label">Tools Used</div>
-                    </div>
-                    <div class="proof-item">
-                        <div class="proof-number">2</div>
-                        <div class="proof-label">Domains: DA · ML</div>
-                    </div>
-                </div>
+                <div class="proof-strip" id="proof-strip"></div>
             </div>
         </div>
     </section>
@@ -93,6 +76,7 @@
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="DA">Data Analysis</button>
                 <button class="filter-btn" data-filter="ML">Machine Learning</button>
+                <button class="filter-btn" data-filter="DA+ML">DA + ML</button>
             </div>
 
             <div class="projects-grid" id="projects-grid"></div>
@@ -301,8 +285,11 @@
             <p class="card-problem" style="margin-top:4px;">What I did & Result</p>
             <div class="card-row">${didHTML}</div>
             <div class="card-tools">${toolsHTML}</div>
-            <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="card-btn">${GITHUB_SVG} View Code</a>
-          </article>`;
+            <div class="card-actions">
+  <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="card-btn">${GITHUB_SVG} View Code</a>
+  ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="card-btn" style="border-color:rgba(34,197,94,0.3);color:#22c55e;background:rgba(34,197,94,0.08);">🚀 Live Demo</a>` : ''}
+</div>
+        </article>`;
             });
 
             document.querySelectorAll('.project-card.fade-in').forEach(el => observer.observe(el));
@@ -341,8 +328,29 @@
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+        function renderProofStrip() {
+            const total = projects.length;
+            const uniqueTools = new Set(projects.flatMap(p => p.tools)).size;
+            const hasDA = projects.some(p => p.category === 'DA');
+            const hasML = projects.some(p => p.category === 'ML');
+            const domains = [hasDA ? 'DA' : '', hasML ? 'ML' : ''].filter(Boolean).join(' · ');
+
+            document.getElementById('proof-strip').innerHTML = `
+        <div class="proof-item"><div class="proof-number">${total}</div><div class="proof-label">Projects Delivered</div></div>
+        <div class="proof-item"><div class="proof-number">15K+</div><div class="proof-label">Records Analyzed</div></div>
+        <div class="proof-item"><div class="proof-number">${uniqueTools}</div><div class="proof-label">Tools Used</div></div>
+        <div class="proof-item"><div class="proof-number">${domains}</div><div class="proof-label">Domains</div></div>
+      `;
+        }
+
         renderProjects('all');
         renderProficiency();
+        renderProofStrip();
+    </script>
+
+    renderProjects('all');
+    renderProficiency();
+    renderProofStrip();
     </script>
 
 </body>

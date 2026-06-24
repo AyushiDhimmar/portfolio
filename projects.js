@@ -6,16 +6,46 @@
 
 const projects = [
   {
+    title: "Hospitality Booking Analytics & Cancellation Prediction",
+    category: "DA+ML",
+    type: "EDA · ML · Power BI",
+    problem:
+      "Hotels lose significant revenue to last-minute cancellations — with no way to predict which bookings would drop off or why.",
+    did: [
+      "Analyzed 119K+ hotel booking records → identified lead time, deposit type, and customer segment as top cancellation drivers.",
+      "Built Random Forest model achieving 84.97% accuracy + developed Power BI dashboard to monitor booking trends and cancellation KPIs.",
+    ],
+    tools: [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Scikit-learn",
+      "Power BI",
+      "Matplotlib",
+      "Seaborn",
+    ],
+    github:
+      "https://github.com/AyushiDhimmar/infotact-Project_2_Hospitality_Analytics",
+  },
+  {
     title: "Healthcare Financial Performance Analysis",
     category: "DA",
-    type: "SQL · Tableau",
+    type: "Python · Tableau",
     problem:
-      "Hospital lacked visibility into which departments were profitable and where costs were bleeding.",
+      "Healthcare providers had no visibility into which regions and departments were profitable — making resource allocation decisions guesswork.",
     did: [
-      "Analyzed 12,851 patient records across 4 regions → tracked ₹33M revenue using SQL KPI queries.",
-      "Built Tableau dashboard → identified 29.83% profit margin + underperforming departments.",
+      "Analyzed 12,851 patients across 4 regions & 6 departments → identified South as top revenue region (₹8.8M) and General Medicine as most profitable department.",
+      "Built Tableau dashboard tracking ₹33M revenue and 29.83% profit margin → enabled monitoring via KPI cards, cost-efficiency heatmaps, and regional breakdowns.",
     ],
-    tools: ["SQL", "Tableau", "KPI Analysis", "EDA"],
+    tools: [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "Excel",
+      "Tableau",
+    ],
     github: "https://github.com/AyushiDhimmar/healthcare-financial-dashboard",
   },
   {
@@ -30,6 +60,20 @@ const projects = [
     ],
     tools: ["SQL", "Power BI", "KPI Analysis", "Dashboard"],
     github: "https://github.com/AyushiDhimmar/sales-performance-dashboard",
+  },
+  {
+    title: "Employee Attrition Prediction",
+    category: "ML",
+    type: "Classification · Streamlit",
+    problem:
+      "Companies lose thousands per employee who quits — HR teams had no way to identify who was at risk before it was too late.",
+    did: [
+      "Built and compared Logistic Regression and Decision Tree models → Decision Tree achieved 93.38% accuracy after feature evaluation.",
+      "Deployed an interactive Streamlit app → provides real-time attrition predictions with key risk and retention factors.",
+    ],
+    tools: ["Python", "Scikit-learn", "Streamlit", "Pandas", "NumPy", "Joblib"],
+    github: "https://github.com/AyushiDhimmar/HR-Employee-Attrition-Prediction",
+    demo: "https://hr-employee-attrition-prediction-9g7qdbpqmqvdykky8vhsas.streamlit.app",
   },
   {
     title: "Customer Churn Prediction",
